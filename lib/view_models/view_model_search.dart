@@ -4,6 +4,7 @@ import 'package:validacep/repository/repository_interface.dart';
 class ViewModelSearch extends ChangeNotifier {
   final IRepository _repository;
   ViewModelSearch(this._repository);
+  
   String result = '';
   TextEditingController inputCep = TextEditingController();
   var formKey = GlobalKey<FormFieldState>();

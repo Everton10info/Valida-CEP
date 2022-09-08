@@ -6,7 +6,7 @@ class CepData {
   String city;
   String district;
   String address;
- /*  String statusText; */
+
   CepData({ 
     required this.status,
     required this.code,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:validacep/view_models/view_model_search.dart';
 import 'package:brasil_fields/brasil_fields.dart';
+
 class CustomTextField extends StatefulWidget {
   CustomTextField({Key? key, required this.viewModel}) : super(key: key);
-
   ViewModelSearch viewModel;
 
   @override

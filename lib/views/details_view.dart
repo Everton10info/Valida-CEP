@@ -14,9 +14,7 @@ class _DetailsState extends State<DetailsView> {
   @override
   Widget build(BuildContext context) {
     double heigth = MediaQuery.of(context).size.height;
-
     ViewModelSearch viewModelSearch = Provider.of<ViewModelSearch>(context);
-   
     return Scaffold(
       appBar: AppBar(
         title: const Text('KLab'),
