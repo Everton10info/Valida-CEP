@@ -15,10 +15,10 @@ class ViewModelSearch extends ChangeNotifier {
     notifyListeners();
     dataCep = await _repository.getCeps(cep.replaceAll('-',''));
     result = dataCep.toString();
-    print('vindo do banco =====$dataCep');
+
     if (dataCep.isEmpty) {
       result = await _repository.fetchCep(cep);
-        print('vindo do weeb =====$result');
+   
     } else {
       result = 'CEP Válido!';
     }
@@ -31,7 +31,7 @@ class ViewModelSearch extends ChangeNotifier {
     String? validResult;
 
     if (formKey.currentState!.validate()) {
-      validResult = await getDataCep(inputCep.text/* .replaceAll('-', '') */);
+      validResult = await getDataCep(inputCep.text.replaceAll('-', ''));
       if (validResult == 'CEP Válido!') {
         return true;
       }

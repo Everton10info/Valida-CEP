@@ -19,13 +19,13 @@ class Repository implements IRepository {
   Future fetchCep(cep) async {
     var resulFetch = '';
     var response = await _serviceWeb.getHttp(cep);
-    
-    if (response == null) {
+    if (response == null || response.isEmpty) {
       return resulFetch = 'Sem conexão, serviço indisponível!';
-    }
+    }else
     if (response['status'] == 400 || response['status'] == 404) {
       return resulFetch = response['message'] as String;
-    }
+
+    }else
     if (response['status'] == 200) {
      
       CepData cepData = CepData.fromjson(response);
