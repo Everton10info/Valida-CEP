@@ -16,7 +16,7 @@ class _DetailsState extends State<DetailsView> {
     double heigth = MediaQuery.of(context).size.height;
 
     ViewModelSearch viewModelSearch = Provider.of<ViewModelSearch>(context);
-    //debugPrint('====== detalhes' + viewModelSearch.dataCep[0]['code'].toString());
+   
     return Scaffold(
       appBar: AppBar(
         title: const Text('KLab'),

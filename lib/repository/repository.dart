@@ -19,30 +19,29 @@ class Repository implements IRepository {
   Future fetchCep(cep) async {
     var resulFetch = '';
     var response = await _serviceWeb.getHttp(cep);
-    debugPrint('venho isso direto ----${response}');
+    
     if (response == null) {
-     return resulFetch = 'Sem conexão, serviço indisponível!';
+      return resulFetch = 'Sem conexão, serviço indisponível!';
     }
     if (response['status'] == 400 || response['status'] == 404) {
-    return  resulFetch = response['message'] as String;
+      return resulFetch = response['message'] as String;
     }
     if (response['status'] == 200) {
+     
       CepData cepData = CepData.fromjson(response);
       resulFetch = 'CEP Válido!';
-     
-      var u = await insertCep(cepData);
- 
+
+    await insertCep(cepData);
     }
     return resulFetch;
   }
 
   @override
   Future getCeps(code) async {
-    
     final db = await _serviceDb.database;
     String sql = "SELECT * FROM ${_serviceDb.nametable} WHERE ${_serviceDb.code} == $code ";
     List<Map<String, Object?>> cepData = await db!.rawQuery(sql);
-    debugPrint('=== codeeeeee '+cepData.toList().toString());
+
     return cepData;
   }
 
@@ -50,8 +49,8 @@ class Repository implements IRepository {
   Future insertCep(cep) async {
     final db = await _serviceDb.database;
     var result = await db!.insert(_serviceDb.nametable, cep.toMap());
-    ConflictAlgorithm.abort;
-    debugPrint(result.toString());
+    ConflictAlgorithm.replace;
+
     return result;
   }
 }

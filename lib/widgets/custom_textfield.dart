@@ -19,13 +19,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
       width: 320,
       child: TextFormField(
          inputFormatters: [
-    // obrigatório
+     
     FilteringTextInputFormatter.digitsOnly,
     CepInputFormatter(ponto: false),
   ],
         maxLength: 10,
         key: widget.viewModel.formKey,
-        textAlign: TextAlign.left,
+        textAlign: TextAlign.center,
         style: const TextStyle(
           fontSize: 19,
         ),

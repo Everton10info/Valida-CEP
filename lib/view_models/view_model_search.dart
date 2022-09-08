@@ -10,10 +10,10 @@ class ViewModelSearch extends ChangeNotifier {
   bool loader = false;
   List dataCep = [];
 
-  Future<String> getDataCep(cep) async {
+  Future<String> getDataCep(String cep) async {
     loader = true;
     notifyListeners();
-    dataCep = await _repository.getCeps(cep);
+    dataCep = await _repository.getCeps(cep.replaceAll('-',''));
     result = dataCep.toString();
     print('vindo do banco =====$dataCep');
     if (dataCep.isEmpty) {

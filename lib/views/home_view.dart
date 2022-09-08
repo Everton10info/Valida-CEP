@@ -98,8 +98,8 @@ class _HomeViewState extends State<HomeView> {
                 width: 150,
                 child: ElevatedButton(
                   onPressed: () async {
-                    var t = await viewModelSearch.validationInicialCEP();
-                    debugPrint("$t");
+                   await viewModelSearch.validationInicialCEP();
+               
                   },
                   child: const Text(
                     'Buscar',

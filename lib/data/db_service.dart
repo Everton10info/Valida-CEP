@@ -4,7 +4,6 @@ import 'package:sqflite/sqflite.dart';
 
 class ServiceDB {
   String nametable = 'tbl_cepData';
-  String id = 'id';
   String status = 'status';
   String code = 'code';
   String state = 'state';
@@ -27,9 +26,8 @@ class ServiceDB {
   }
 
   _createTable(Database db, int versao) async {
-    await db.execute('CREATE TABLE $nametable('
-        '$id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        '$status INTEGER,'
+    await db.execute('CREATE TABLE $nametable('      
+        '$status TEXT,'
         '$code TEXT,'
         '$state TEXT,'
         '$city TEXT,'
